@@ -8,10 +8,14 @@
 
 body {
   background-color: #efefef;
+  background-image: url(img/rick-and-morty-uhdpaper.com-hd-5.147.jpg);
+  background-repeat: repeat;
+  background-position: center;
 }
 
 header {
   height: 60vh;
+
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -30,13 +34,19 @@ h1 {
   color: white;
 }
 
-#form {
+#form-episode {
+  margin-top: 2rem;
+}
+#form,
+#form-episode {
   display: flex;
   justify-content: center;
 }
 
 #form input,
+#form-episode input,
 #form select,
+#form-episode select,
 #form #gender {
   border-radius: 25px;
   padding: 0.5em 1.5em;
@@ -52,13 +62,25 @@ h1 {
   border: none;
   color: #fff;
 }
+#form-episode input[type="submit"] {
+  background-color: rgb(37, 131, 159);
+  padding: 0.5em 5em;
+  border: none;
+  color: #fff;
+}
 
 #form input[type="submit"]:hover {
   background-color: rgb(32, 153, 160);
   cursor: pointer;
 }
+#form-episode input[type="submit"]:hover {
+  background-color: rgb(126, 159, 37);
+  cursor: pointer;
+}
 
 #output {
+  display: flex;
+  justify-content: center;
   margin-top: 1rem;
   width: 100%;
   display: grid;
@@ -100,19 +122,21 @@ h1 {
 
 .card p {
   margin: 18px;
-  color: #555;
 }
 
 .author-wrapper {
-  background-color: #88a93a;
+  background-color: #2fc0d6;
   display: flex;
   align-items: center;
-  justify-content: space-between;
-  padding: 0 16px 16px;
+
+  padding: 6px 6px;
+  color: white;
 }
 
-#status #species {
+.status {
+  width: 100%;
   color: white;
+  font-size: 0.9rem;
 }
 
 .loader {
@@ -166,4 +190,22 @@ h1 {
   to {
     background-position: 0 175px;
   }
+}
+
+.errorCard-wrapper {
+  background-color: #ff3d00;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 6px 6px;
+  color: white;
+  border: solid red 5px;
+}
+.errorCard {
+  color: white;
+  background-color: #ff3d00;
+}
+
+#img {
+  width: 20px;
 }
