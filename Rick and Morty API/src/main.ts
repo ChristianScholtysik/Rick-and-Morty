@@ -58,6 +58,9 @@ function fetchAllCharacters() {
         output.innerHTML = errorCard;
         return ` output.innerHTML= errorCard `;
       }
+    })
+    .finally(() => {
+      loadingIndicator.style.display = "none";
     });
 }
 
