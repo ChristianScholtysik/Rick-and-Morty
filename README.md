@@ -1,1 +1,1 @@
-# Marvel
+# Rick and Morty
