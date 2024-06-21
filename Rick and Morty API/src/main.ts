@@ -7,6 +7,7 @@ import { Status } from "./contracts/Status.ts";
 const searchField = document.getElementById("input-field") as HTMLInputElement;
 const select = document.getElementById("select") as HTMLInputElement;
 const gender = document.getElementById("gender") as HTMLInputElement;
+const loadingIndicator = document.querySelector(".loader") as HTMLSpanElement;
 
 //*Event listener
 const form = document.getElementById("form") as HTMLFormElement;
@@ -14,6 +15,8 @@ form.addEventListener("submit", (event: Event) => {
   event.preventDefault();
   fetchAllCharacters();
 });
+
+loadingIndicator.style.display = "none";
 
 function buildFetchUrl() {
   const BASE_URL = "https://rickandmortyapi.com/api/character/";
@@ -64,6 +67,7 @@ function displayCharacters(allCharacters: IResult[]) {
   const output = document.getElementById("output") as HTMLDivElement;
 
   if (output) {
+    loadingIndicator.style.display = "block";
     let charactersMap = allCharacters.map((result: IResult) => {
       const location = result.location;
       const origin = result.origin;
