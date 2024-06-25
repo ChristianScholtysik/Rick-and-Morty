@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Rick and Morty API</title>
+    <script type="module" crossorigin src="/Rick-and-Morty/assets/index-ldKMuEJ7.js"></script>
+    <link rel="stylesheet" crossorigin href="/Rick-and-Morty/assets/index-Cg05pTG8.css">
+  </head>
+  <body>
+    <header>
+      <h1 id="h1">Rick and Morty</h1>
+      <span class="loader"></span>
+      <form id="form">
+        <input
+          type="text"
+          id="input-field"
+          placeholder="Search for a character" />
+        <select name="" id="select">
+          <option value="">filter by status</option>
+          <option value="alive">alive</option>
+          <option value="dead">dead</option>
+          <option value="unknown">unknown</option>
+        </select>
+        <select name="" id="gender">
+          <option value="">filter by gender</option>
+          <option value="male">Male</option>
+          <option value="female">Female</option>
+          <option value="genderless">Genderless</option>
+          <option value="unknown">unknown</option>
+        </select>
+        <input type="submit" id="submit-btn" value="Search" />
+      </form>
+      <form id="form-episode">
+        <input
+          type="text"
+          id="input-field-episode"
+          placeholder="Search for a episode" />
+
+        <input type="submit" id="submit-btn" value="Search" />
+      </form>
+    </header>
+
+    <main>
+      <div id="gender-button-field"></div>
+
+      <output>
+        <div id="output"></div>
+      </output>
+    </main>
+
+  </body>
+</html>

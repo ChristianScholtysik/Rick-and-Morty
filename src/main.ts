@@ -2,7 +2,7 @@ import {
   IRickandMortyCharacterResponse,
   IResult,
 } from "./contracts/IRickandMortyCharacterResponse.ts.ts";
-import { Status } from "./contracts/Status.ts";
+
 import { IAllEpisodes } from "./contracts/IAllEpisodes.ts";
 import { IEpisode } from "./contracts/IEpisode.ts";
 
@@ -33,9 +33,7 @@ function buildCharacterFetchUrl() {
   const character = searchField.value;
   const CHARACTERNAME = `?name=${character}`;
   const characterStatus = select.value;
-  const CHARAKTERSTATUS =
-    // characterStatus === "0" ? "" : `&status=${characterStatus}`;
-    `&status=${characterStatus}`;
+  const CHARAKTERSTATUS = `&status=${characterStatus}`;
   const characterGender = gender.value;
   const CHARACTERGENDER = `&gender=${characterGender}`;
   const CHARACTERSEARCH_URL = `${BASE_URL}${CHARACTERNAME}${CHARAKTERSTATUS}${CHARACTERGENDER}`;
@@ -46,20 +44,13 @@ function buildEpisodeFetchUrl() {
   const BASE_URL = "https://rickandmortyapi.com/api/episode";
   const episode = searchFieldEpisode.value;
   const EPISODENAME = `?name=${episode}`;
-  //const characterStatus = select.value;
-  // const CHARAKTERSTATUS =
-  //   // characterStatus === "0" ? "" : `&status=${characterStatus}`;
-  //   `&status=${characterStatus}`;
-  // const characterGender = gender.value;
-  // const CHARACTERGENDER = `&gender=${characterGender}`;
+
   const EPISODESEARCH_URL = `${BASE_URL}${EPISODENAME}`;
   return EPISODESEARCH_URL;
 }
 
 //*
 function fetchAllEpisodes() {
-  let allEpisodes: IEpisode[] = [];
-
   fetch(buildEpisodeFetchUrl())
     .then((response: Response) => {
       if (!response.ok) {
@@ -72,15 +63,11 @@ function fetchAllEpisodes() {
     })
     .then((results: IEpisode[]) => {
       console.log("Epsode", results);
-      allEpisodes = results;
+
       displayEpisodes(results);
       return results;
     })
-    // .then((: IResult[]) => {
-    //   characterList = results;
-    //   console.log("CharacterList", characterList);
-    //   // displayEpisodes(results);
-    // })
+
     .catch((error: Error) => {
       console.error(error);
       const output = document.getElementById("output");
@@ -96,8 +83,6 @@ function fetchAllEpisodes() {
 }
 
 function fetchAllCharacters() {
-  let allCharacters: IResult[] = [];
-
   fetch(buildCharacterFetchUrl())
     .then((response: Response) => {
       if (!response.ok) {
@@ -109,7 +94,6 @@ function fetchAllCharacters() {
       return rickandMortyCharacterResponse.results;
     })
     .then((results: IResult[]) => {
-      allCharacters = results;
       displayCharacters(results);
     })
     .catch((error: Error) => {
@@ -159,23 +143,10 @@ function displayCharacters(allCharacters: IResult[]) {
 function displayEpisodes(allEpisodes: IEpisode[]) {
   const output = document.getElementById("output") as HTMLDivElement;
 
-  // function displayCharacterlistOfEpisode(characterList: ICharacterlist[]) {
-  //   const img2 = document.getElementById("img2") as HTMLImageElement;
-  //   console.log(characterList);
-  //   let list = characterList.map((character: ICharacterlist) => {
-  //     const img = character.name;
-  //     return `<div class="img2-wrapper">
-  //     <img  src='${img}' alt="Image id="img2">
-  //    </div>`;
-  //   });
-  //   console.log(list);
-  //   img2.src = list.join("");
-  // }
-
   if (output) {
     loadingIndicator.style.display = "block";
     let episodesMap = allEpisodes.map((episode: IEpisode) => {
-      const charactersPerEpisode = episode.characters;
+      // const charactersPerEpisode = episode.characters;
       // console.log("CPE", charactersPerEpisode); //TODO:
       return ` <div class="card">
    <h2>${episode.name}</h2>
