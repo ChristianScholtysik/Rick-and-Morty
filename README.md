@@ -15,10 +15,6 @@ This project is a simple web application that interacts with the Rick and Morty 
   - [Usage](#usage)
     - [Character Search](#character-search)
     - [Episode Search](#episode-search)
-  - [Code Overview](#code-overview)
-    - [Main Files](#main-files)
-    - [Functions](#functions)
-  - [Contributing](#contributing)
   - [License](#license)
   - [Acknowledgements](#acknowledgements)
 
