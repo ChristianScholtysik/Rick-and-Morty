@@ -10,7 +10,7 @@ body {
   background-color: #efefef;
   background-image: url(img/rick-and-morty-uhdpaper.com-hd-5.147.jpg);
   background-repeat: repeat;
-  background-position: center;
+  background-position: cover;
 }
 
 header {
@@ -20,10 +20,10 @@ header {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  background-image: url(img/1330376.png);
+  /* background-image: url(img/1330376.png);
   background-repeat: no-repeat;
   background-position: center;
-  background-size: cover;
+  background-size: cover; */
   font-size: 10rem;
   color: white;
   margin-bottom: 2rem;
@@ -79,8 +79,6 @@ h1 {
 }
 
 #output {
-  display: flex;
-  justify-content: center;
   margin-top: 1rem;
   width: 100%;
   display: grid;
@@ -193,15 +191,14 @@ h1 {
 }
 
 .errorCard-wrapper {
-  background-color: #ff3d00;
+  width: 98vw;
   display: flex;
-  align-items: center;
   justify-content: center;
-  padding: 6px 6px;
-  color: white;
-  border: solid red 5px;
 }
 .errorCard {
+  padding: 60px 60px;
+  text-align: center;
+  height: 150px;
   color: white;
   background-color: #ff3d00;
 }
